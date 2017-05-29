@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="327.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.GameController">
+   <children>
+      <Label fx:id="letraLabel" layoutX="14.0" layoutY="14.0" text="Letra Escolhida: " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="97.0" prefWidth="109.0" text="Nome de Animal" AnchorPane.leftAnchor="13.0" />
+      <Label layoutX="173.0" layoutY="97.0" prefWidth="109.0" text="Nome de Cidade" />
+      <Label layoutX="329.0" layoutY="97.0" prefWidth="109.0" text="Nome de Pais" />
+      <Label layoutX="478.0" layoutY="97.0" prefWidth="109.0" text="Nome de Pessoa" AnchorPane.rightAnchor="13.0" />
+      <Label layoutX="14.0" layoutY="199.0" text="Nome de Fruta" />
+      <Label layoutX="173.0" layoutY="200.0" text="Marca de Carro" />
+      <TextField fx:id="animalField" layoutX="14.0" layoutY="121.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="cidadeField" layoutX="174.0" layoutY="121.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="paisField" layoutX="329.0" layoutY="121.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="pessoaField" layoutX="477.0" layoutY="121.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="frutaField" layoutX="14.0" layoutY="226.0" prefWidth="109.0" />
+      <TextField fx:id="marcaCarroField" layoutX="173.0" layoutY="227.0" prefWidth="109.0" />
+      <Label fx:id="timeLabel" layoutX="14.0" layoutY="51.0" text="Tempo:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

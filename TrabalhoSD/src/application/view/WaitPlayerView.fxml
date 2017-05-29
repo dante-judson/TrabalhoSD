@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WaitPlayerController">
+   <children>
+      <Label layoutX="86.0" layoutY="14.0" text="Esperando Jogador:" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0" />
+      <Button fx:id="startButton" layoutX="119.0" layoutY="147.0" mnemonicParsing="false" text="Iniciar" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="119.0" disable="true" onAction="#startButtonAction"/>
+      <Label fx:id="ipPlayerLabel" alignment="CENTER" layoutX="4.0" layoutY="93.0" prefHeight="15.0" prefWidth="293.0" text="..." AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" />
+   </children>
+</AnchorPane>

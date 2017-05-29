@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.JoinGameController">
+   <children>
+      <Label fx:id="msgLabel" alignment="CENTER" layoutX="132.0" layoutY="42.0" text="Label" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="waitLabel" layoutX="132.0" layoutY="93.0" text="Label" />
+   </children>
+</AnchorPane>

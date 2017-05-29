@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NewGameController">
+   <children>
+      <Button fx:id="startButton" layoutX="141.0" layoutY="141.0" mnemonicParsing="false" onAction="#startButtonAction" prefHeight="25.0" prefWidth="80.0" text="Start" />
+      <CheckBox fx:id="iniciarCheckBox" layoutX="123.0" layoutY="23.0" mnemonicParsing="false" onAction="#iniciarAction" selected="true" text="Iniciar Partida" />
+      <CheckBox fx:id="entrarCheckBox" layoutX="123.0" layoutY="67.0" mnemonicParsing="false" onAction="#entrarAction" text="Entrar Partida" />
+      <TextField fx:id="ipServidorField" alignment="CENTER" editable="false" layoutX="95.0" layoutY="101.0" promptText="IP Servidor" />
+   </children>
+</AnchorPane>
