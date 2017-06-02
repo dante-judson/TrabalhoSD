@@ -1,6 +1,9 @@
 package application.controller;
 
 import java.net.URL;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ResourceBundle;
 
 import com.sockets.FabricaSocket;
@@ -18,7 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class GameController implements Initializable{
+public class GameController implements Initializable, MyRemote{
 
 	@FXML
 	private TextField animalField;
@@ -54,6 +57,7 @@ public class GameController implements Initializable{
 	private String vencedor;
 	private int pontuacaoLocal;
 	private int pontuacaoAdv;
+	private String placar;
 	
 	public void trocarRespostas(){
 			try{
@@ -72,7 +76,7 @@ public class GameController implements Initializable{
 				// TODO: handle exceptio
 				e.printStackTrace();
 			}
-			System.out.println();
+			System.out.println("teste");
 		gerarPontuacao();
 	}
 	
@@ -113,19 +117,16 @@ public class GameController implements Initializable{
 				vencedor = "server";
 			else
 				vencedor = "client";
-			chamarTela();
-			SocketGenerico socket = new FabricaSocket().getSocket(FabricaSocket.SOCKET_TCP);
-			Pacote p = new Pacote(vencedor+":"+pontuacaoAdv,ipCliente,9999);
-			Thread.sleep(2000);
-			socket.enviar(p);
-			chamarTela();
+			placar = pontuacaoLocal+" X "+pontuacaoAdv;
+			setPlacar(placar);
+			Registry myRegistry = LocateRegistry.getRegistry(ipCliente);
+			MyRemote remote = (MyRemote) myRegistry.lookup("placar");
+			remote.setPlacar(placar);
+			
 		} else {
-			SocketGenerico socket = new FabricaSocket().getSocket(FabricaSocket.SOCKET_TCP);
-			Pacote p = socket.receber(9999);
-			String[] s = p.getConteudo().toString().split(":");
-			vencedor = s[0];
-			pontuacaoLocal = Integer.parseInt(s[1]);
-			chamarTela();
+			MyRemote remote =(MyRemote) UnicastRemoteObject.exportObject(this,0);
+			Registry myRegistry = LocateRegistry.getRegistry();
+			myRegistry.bind("placar",remote);
 		}
 				
 		} catch (Exception e) {
@@ -222,7 +223,7 @@ public class GameController implements Initializable{
 				loader.setLocation(url);
 				Parent resultView = loader.load();
 				ResultController controller = loader.getController();
-				controller.setResultado(pontuacaoLocal+" X "+pontuacaoAdv);
+				controller.setResultado(placar);
 				Scene scene = new Scene(resultView);
 				Stage stage = new Stage();
 				stage.setScene(scene);
@@ -233,5 +234,13 @@ public class GameController implements Initializable{
 			}
 		});
 		
+	}
+	
+
+
+	@Override
+	public void setPlacar(String placar) {
+		this.placar = placar;
+		chamarTela();
 	}
 }
